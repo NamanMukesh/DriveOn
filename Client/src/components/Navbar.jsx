@@ -11,7 +11,7 @@ const Navbar = ({setShowlogin}) => {
     <div className={`flex item-center justify-between px-6 md:px-6 lg:px-24 xl:px-32 py-4 text-grey-600
     border-b border-borderColor relative transition-all ${location.pathname === "/" && "bg-light"}`}>
         <Link to='/'>
-            <img src={assets.logo} alt="logo" className="h-8"/>
+            <img src={assets.logo} alt="logo" className="h-12"/>
         </Link>
 
         <div className={`max-sm:fixed max-sm:h-screen max-sm:w-full max-sm:top-16 max-sm:border-t 
