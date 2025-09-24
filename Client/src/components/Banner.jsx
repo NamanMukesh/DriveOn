@@ -17,7 +17,7 @@ const Banner = () => {
 
         </div>
 
-        <img src={assets.banner_car_image} alt="banner" className='max-h-25 mt-10'/>
+        <img src={assets.banner_car_image} alt="banner" className='max-h-45 mt-10'/>
 
     </div>
 
