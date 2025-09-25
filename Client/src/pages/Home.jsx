@@ -13,7 +13,6 @@ const Home = () => {
         <Banner/>
         <Testimonial/>
         <Newsletter/>
-
     </>
   )
 }
