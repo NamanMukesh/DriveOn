@@ -1,21 +1,46 @@
 import React, { useEffect, useState } from 'react'
 import {useParams, useNavigate } from 'react-router-dom'
-import { dummyCarData, assets } from '../assets/assets'
+import { assets } from '../assets/assets'
 import Loader from '../components/Loader'
+import { useAppContext } from '../context/AppContext'
+import toast from 'react-hot-toast'
 
 const CarDetails = () => {
   
   const {id} = useParams()
+  const {cars, axios, pickupDate, setPickupDate, returnDate, setReturnDate} = useAppContext()
   const navigate = useNavigate()
   const [car, setCar] = useState(null)
   const currency = import.meta.env.VITE_CURRENCY
+
   const handleSubmit = async (e)=> {
     e.preventDefault();
+    try {
+      const {data} = await axios.post('/api/bookings/create', {
+        car : id,
+        pickupDate,
+        returnDate
+      })
+
+      if(data.success){
+        toast.success(data.message)
+        navigate('/my-bookings')
+      }else{
+        toast.error(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+      
+    }
   }
 
-  useEffect(()=>{
-    setCar(dummyCarData.find(car => car._id === id))
-  }, [id])
+  useEffect(() => {
+  if (cars.length > 0) {
+    const foundCar = cars.find((c) => c._id === id);
+    setCar(foundCar);
+  }
+}, [cars, id]);
+
 
   
   return car ? (
@@ -79,14 +104,14 @@ const CarDetails = () => {
             {currency}{car.pricePerDay} <span className='text-base text-gray-400 font-normal'> per day</span></p>
           <hr className='border-bordercolor my-6'/>
           <div className='flex flex-col gap-2'>
-                <label htmlFor="pickup-date">Pickup Date</label>
-                <input type="date" className='border border-bordercolor px-3 py-2 rounded-lg' 
+                <label htmlFor="pickup-date">Pickup Date</label> 
+                <input value={pickupDate} onChange={(e)=> setPickupDate(e.target.value)} type="date" className='border border-bordercolor px-3 py-2 rounded-lg' 
                 required id='pickup-date' min={new Date().toISOString().split('T')[0]}/>
           </div>
 
           <div className='flex flex-col gap-2'>
               <label htmlFor="return-date">Return Date</label>
-              <input type="date" className='border border-bordercolor px-2 py-2 rounded-lg'
+              <input value={returnDate} onChange={(e)=> setReturnDate(e.target.value)} type="date" className='border border-bordercolor px-2 py-2 rounded-lg'
               required='return-date'/>
           </div>
           <button className='w-full bg-primary hover:bg-primary-dull transition-all py-3 font-medium

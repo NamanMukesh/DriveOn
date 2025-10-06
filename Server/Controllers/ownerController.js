@@ -9,11 +9,11 @@ import { create } from "domain";
 export const changeRoleToOwner = async (req, res)=> {
     try {
         const {_id} = req.user;
-        await User.findByIdAndUpdate(_id, {role: "Owner"})
-        res.json({sucess: true, message: "Now you can list cars"})
+        await User.findByIdAndUpdate(_id, {role: "owner"})
+        res.json({success: true, message: "Now you can list cars"})
     } catch (error) {
         console.log(error.message);
-        res.json({sucess: false, message: error.message})
+        res.json({success: false, message: error.message})
     }
 }
 
@@ -45,11 +45,11 @@ export const addCar = async(req, res)=> {
         const image = OptimizedImageURL;
         await Car.create({...car, owner: _id, image})
 
-        res.json({sucess: true, message: "Car Added"})
+        res.json({success: true, message: "Car Added"})
 
     } catch (error) {
         console.log(error.message);
-        res.json({sucess: false, message: error.message})
+        res.json({success: false, message: error.message})
     }
 }
 
@@ -58,10 +58,10 @@ export const getOwerCars = async(req, res)=> {
     try{
         const{_id} = req.user;
         const cars = await Car.find({owner: _id})
-        res.json({sucess: true, cars})
+        res.json({success: true, cars})
     } catch (error) {
         console.log(error.message);
-        res.json({sucess: false, message: error.message})
+        res.json({success: false, message: error.message})
     }
 }
 
@@ -74,16 +74,16 @@ export const toggleCarAvailability = async(req, res)=> {
 
         //Checking is car belongs to the user
         if(car.owner.toString() !== _id.toString()){
-            return res.json({sucess: false, message: "Unauthorized"});
+            return res.json({success: false, message: "Unauthorized"});
         }
 
         car.isAvailable = !car.isAvailable;
         await car.save()
 
-        res.json({sucess: true, message: "Availability Toggled"})
+        res.json({success: true, message: "Availability Toggled"})
     } catch (error) {
         console.log(error.message);
-        res.json({sucess: false, message: error.message})
+        res.json({success: false, message: error.message})
     }
 }
 
@@ -96,17 +96,17 @@ export const deleteCar = async(req, res)=> {
 
         //Checking is car belongs to the user
         if(car.owner.toString() !== _id.toString()){
-            return res.json({sucess: false, message: "Unauthorized"});
+            return res.json({success: false, message: "Unauthorized"});
         }
 
         car.owner = null;
         car.isAvailable = false;
         await car.save()
 
-        res.json({sucess: true, message: "Car Removed"})
+        res.json({success: true, message: "Car Removed"})
     } catch (error) {
         console.log(error.message);
-        res.json({sucess: false, message: error.message})
+        res.json({success: false, message: error.message})
     }
 }
 
@@ -116,17 +116,17 @@ export const getDashboardData = async(req, res) => {
         const {_id, role} = req.user;
 
         if(role !== 'owner'){
-            return res.json({sucess: false, message: "Unauthorized"})
+            return res.json({success: false, message: "Unauthorized"})
         }
 
         const cars = await Car.find({owner: _id})
         const bookings = await Booking.find({owner: _id}).populate('car').sort({createdAt: -1});
 
         const pendingBookings = await Booking.find({owner:_id, status: "pending"})
-        const completedBookings = await Booking.find({owner:_id, status: "confirmend"})
+        const completedBookings = await Booking.find({owner:_id, status: "confirmed"})
 
-        //Calculate monthlyRevenue from bookings where status is confirmend
-        const monthlyRevenue = bookings.slice().filter(booking => booking.status === 'confirmend').
+        //Calculate monthlyRevenue from bookings where status is confirmed
+        const monthlyRevenue = bookings.slice().filter(booking => booking.status === 'confirmed').
         reduce((acc, booking)=> acc + booking.price, 0)
 
         const dashboardData = {
@@ -143,7 +143,7 @@ export const getDashboardData = async(req, res) => {
 
     } catch (error) {
         console.log(error.message);
-        res.json({sucess: false, message: error.message})
+        res.json({success: false, message: error.message})
     }
 }
 
@@ -179,6 +179,6 @@ export const updateUserImage = async(req, res)=> {
 
     } catch (error) {
         console.log(error.message);
-        res.json({sucess: false, message: error.message})
+        res.json({success: false, message: error.message})
     }
 }
