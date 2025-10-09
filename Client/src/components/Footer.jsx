@@ -75,8 +75,8 @@ const Footer = () => {
                     <div>
                         <h2 className='text-base font-medium text-gray-800 uppercase'>Contact</h2>
                         <ul className='mt-3 flex flex-col gap-1.5'>
-                            <li><a href="#">1234 Luxury Drive</a></li>
-                            <li><a href="#">San Francisco, CA 94107</a></li>
+                            <li><a href="#">DriveOn</a></li>
+                            <li><a href="#">Connaught Place, New Delhi</a></li>
                             <li><a href="#">+91 9876543210</a></li>
                             <li><a href="#">info@driveon.com</a></li>
                         </ul>
