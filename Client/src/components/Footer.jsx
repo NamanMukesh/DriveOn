@@ -30,8 +30,8 @@ const Footer = () => {
                     transition={{duration: 0.5, delay: 0.4}}                    
                     
                     className='max-w-80 mt-3'>
-                        Premium car rental service with a wide selection 
-                        of luxury and everyday vehicles for all your driving needs.
+                        Affordable car rental service with a wide selection 
+                        of everyday vehicles for all your driving needs.
                     </motion.p>
                     <motion.div 
                     initial={{opacity: 0}}

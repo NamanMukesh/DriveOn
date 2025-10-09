@@ -114,7 +114,7 @@ const AddCar = () => {
               <select onChange={e=> setCar({...car, category: e.target.value})} 
                 value={car.category} className='px-3 py-2 mt-1 border border-gray-300 rounded-md outline-none'>
                   <option value="">Select a category</option>
-                  <option value="Sedan">Hatchback</option>
+                  <option value="Hatchback">Hatchback</option>
                   <option value="Sedan">Sedan</option>
                   <option value="SUV">SUV</option>
                   <option value="Van">Van</option>

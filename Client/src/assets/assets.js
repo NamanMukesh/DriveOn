@@ -32,8 +32,11 @@ import calendar_icon_colored from "./calendar_icon_colored.svg"
 import location_icon_colored from "./location_icon_colored.svg"
 import testimonial_image_1 from "./testimonial_image_1.png"
 import testimonial_image_2 from "./testimonial_image_2.png"
+import testimonial_image_3 from "./testimonial_image_3.png"
+import testimonial_image_4 from "./testimonial_image_4.png"
 import main_car from "./main_car.png"
 import banner_car_image from "./banner_car_image.png"
+import banner_Innova_Crysta from "./banner_Innova_Crysta.png"
 import user_profile from "./user_profile.png"
 import upload_icon from "./upload_icon.svg"
 import car_image1 from "./car_image1.png"
@@ -78,8 +81,11 @@ export const assets = {
     filter_icon,
     testimonial_image_1,
     testimonial_image_2,
+    testimonial_image_3,
+    testimonial_image_4,
     main_car,
     banner_car_image,
+    banner_Innova_Crysta,
     car_image1,
     upload_icon,
     user_profile,

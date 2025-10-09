@@ -24,7 +24,7 @@ const {cars} = useAppContext()
         transition={{duration: 1, delay: 0.5}}
         >
             <Title title='Featured Vehicles' 
-            subTitle='Explore our selection of premium vehicles available for your next adventure.'/>   
+            subTitle='Explore our selection of affordable vehicles available for your next adventure.'/>   
         </motion.div>
 
         <motion.div 

@@ -7,17 +7,17 @@ import { motion } from 'framer-motion';
 const Testimonial = () => {
 
     const testimonials = [
-        {name: "Emma Rodriguez", 
-        location: "Barcelona, Spain", 
-        image: assets.testimonial_image_1, 
+        {name: "Harsh Chaturvedi", 
+        location: "New Delhi", 
+        image: assets.testimonial_image_4, 
         testimonial: "I've rented cars from various companies, but the experience with DriveOn was exceptions." },
-        {name: "Liam Johnson", 
-        location: "New York, USA", 
-        image: assets.testimonial_image_2,  
+        {name: "Ayushi Gupta",
+        location: "Bengaluru, Karnataka", 
+        image: assets.testimonial_image_1,  
         testimonial: "DriveOn made my trip so much easier. The car was delivered right to my door, and the customer service was fantastic!" },
-        {name: "Sophia Lee", 
-        location: "Seoul, South Korea", 
-        image: assets.testimonial_image_1, 
+        {name: "Sarvesh Kumar", 
+        location: "Pune, Maharastra", 
+        image: assets.testimonial_image_3, 
         testimonial: "I highly recommend DriveOn! Their fleet is amazing, and I always feel like I'm getting the best deal with excellent service." }
     ];
 

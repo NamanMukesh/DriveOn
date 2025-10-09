@@ -13,9 +13,9 @@ const Banner = () => {
     bg-gradient-to-r from-[#0558FE] to-[#A9CFFF] max-w-6xl mx-3 md:mx-auto rounded-2xl overflow-hidden'>
 
         <div className='text-white'>
-            <h2 className='text-3xl font-medium'>Do You Own A Luxury Car?</h2>
+            <h2 className='text-3xl font-medium'>Do You Own A Car?</h2>
             <p className='mt-2'>Monetize your vehicle effortlessly by listing it on DriveOn.</p>
-            <p className='max-w-130'>We take care of insurance, driver verification and secure payments 
+            <p className='max-w-120'>We take care of insurance, driver verification and secure payments 
                 so you can earn passive income, stress-free.</p>
 
             <motion.button 
@@ -30,7 +30,7 @@ const Banner = () => {
         initial={{opacity: 0, x: 50}}
         whileInView={{opacity: 1, x: 0}}
         transition={{duration: 0.6, delay: 0.4}}
-        src={assets.banner_car_image} alt="banner" className='max-h-45 mt-10'/>
+        src={assets.banner_Innova_Crysta} alt="banner" className='max-h-[16rem] object-contain self-start -mt-8 md:-mt-10'/>
 
     </motion.div>
 
